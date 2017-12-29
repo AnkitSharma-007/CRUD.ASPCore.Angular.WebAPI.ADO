@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <h1>{{title}}</h1>
+    <h3>Employee</h3>
+    <hr />
+    <form [formGroup]="employeeForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+
+        <div class="form-group row">
+            <label class=" control-label col-md-12" for="Name">Name</label>
+            <div class="col-md-4">
+                <input class="form-control" type="text" formControlName="name">
+            </div>
+            <span class="text-danger" *ngIf="employeeForm.hasError('required', 'name') && formDir.submitted">
+                Name is required.
+            </span>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-12" for="Gender">Gender</label>
+            <div class="col-md-4">
+                <select class="form-control" data-val="true" formControlName="gender">
+                    <option value="">-- Select Gender --</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <span class="text-danger" *ngIf="employeeForm.hasError('required', 'gender') && formDir.submitted">
+                Gender is required
+            </span>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-12" for="Department">Department</label>
+            <div class="col-md-4">
+                <input class="form-control" type="text" formControlName="department">
+            </div>
+            <span class="text-danger" *ngIf="employeeForm.hasError('required', 'department') && formDir.submitted">
+                Department is required
+            </span>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-12" for="City">City</label>
+            <div class="col-md-4">
+                <input class="form-control" type="text" formControlName="city" data-val="true">
+            </div>
+            <span class="text-danger" *ngIf="employeeForm.hasError('required', 'city') && formDir.submitted">
+                City is required
+            </span>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-default">Save</button>
+            <button class="btn" (click)="cancel()">Cancel</button>
+        </div>
+    </form>
+</body>
+</html>

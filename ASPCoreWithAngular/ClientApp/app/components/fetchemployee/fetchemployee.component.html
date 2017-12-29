@@ -1,0 +1,35 @@
+﻿<h1>Employee Data</h1>
+
+<p>This component demonstrates fetching Employee data from the server.</p>
+
+<p *ngIf="!empList"><em>Loading...</em></p>
+
+<p>
+    <a [routerLink]="['/register-employee']">Create New</a>
+</p>
+
+<table class='table' *ngIf="empList">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Department</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of empList">
+            <td>{{ emp.id }}</td>
+            <td>{{ emp.name }}</td>
+            <td>{{ emp.gender }}</td>
+            <td>{{ emp.department }}</td>
+            <td>{{ emp.city }}</td>
+            <td>
+            <td>
+                <a [routerLink]="['/employee/edit/', emp.id]">Edit</a> |
+                <a [routerLink]="" (click)="delete(emp.id)">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
