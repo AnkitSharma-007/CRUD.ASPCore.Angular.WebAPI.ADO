@@ -1,18 +1,17 @@
 <h1>{{title}}</h1>
 <h3>Employee</h3>
 <hr />
-<form [formGroup]="employeeForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
 
+<form [formGroup]="employeeForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
     <div class="form-group row">
         <label class=" control-label col-md-12">Name</label>
         <div class="col-md-4">
-            <input class="form-control" type="text" formControlName="name" required>
+            <input class="form-control" type="text" formControlName="name">
         </div>
         <span class="text-danger" *ngIf="name.invalid && formDir.submitted">
             Name is required.
         </span>
     </div>
-
     <div class="form-group row">
         <label class="control-label col-md-12" for="Gender">Gender</label>
         <div class="col-md-4">
