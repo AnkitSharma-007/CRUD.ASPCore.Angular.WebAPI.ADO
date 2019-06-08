@@ -1,15 +1,19 @@
-﻿using System;
+﻿using ASPCoreWithAngular.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ASPCoreWithAngular.Models
 {
-    public class EmployeeDataAccessLayer
+    public class EmployeeDataAccessLayer : IEmployee
     {
-        string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=myTestDB;Data Source=ANKIT-HP\\SQLEXPRESS";
+        string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=myTestDB;Data Source=ANKIT-LENOVO\\SQLEXPRESS";
+
+        internal void UseSqlServer(string v)
+        {
+            throw new NotImplementedException();
+        }
 
         //To View all employees details
         public IEnumerable<Employee> GetAllEmployees()

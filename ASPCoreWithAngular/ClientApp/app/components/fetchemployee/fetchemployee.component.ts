@@ -22,7 +22,7 @@ export class FetchEmployeeComponent {
     }
 
     delete(employeeID) {
-        var ans = confirm("Do you want to delete customer with Id: " + employeeID);
+        var ans = confirm("Do you want to delete employee with Id: " + employeeID);
         if (ans) {
             this._employeeService.deleteEmployee(employeeID).subscribe((data) => {
                 this.getEmployees();

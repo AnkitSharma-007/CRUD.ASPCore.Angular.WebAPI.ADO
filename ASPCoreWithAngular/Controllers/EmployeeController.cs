@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using System.Data.SqlClient;
-using System.Data;
 using ASPCoreWithAngular.Models;
+using ASPCoreWithAngular.Interfaces;
 
 namespace ASPCoreWithAngular.Controllers
 {
     public class EmployeeController : Controller
     {
-        EmployeeDataAccessLayer objemployee = new EmployeeDataAccessLayer();
+        private readonly IEmployee objemployee;
+
+        public EmployeeController(IEmployee _objemployee)
+        {
+            objemployee = _objemployee;
+        }
 
         [HttpGet("[action]")]
         [Route("api/Employee/Index")]
